@@ -1,14 +1,14 @@
-# Minha Gameteca (Microsserviços com Node.js) 🎮
+# Minha Gameteca (Microsserviços com Node.js)
 
 Este projeto é uma plataforma simples de coleção de jogos construída usando a arquitetura de **Microsserviços**. [cite_start]Em vez de fazer tudo em um servidor só (monolito), eu dividi o sistema em três partes independentes que conversam entre si via HTTP[cite: 3, 4, 5, 6].
 
-## 🏗️ Como a estrutura funciona
+Como a estrutura funciona
 
 * **Catálogo-Service (Porta 3001):** Cuida só dos jogos. [cite_start]Tem as rotas para criar, listar e deletar os jogos disponíveis[cite: 25, 27, 28].
 * **Usuários-Service (Porta 3002):** Cuida só das pessoas. [cite_start]Cria e lista os usuários da plataforma[cite: 29, 31, 32].
 * **Biblioteca-Service (Porta 3000):** É o cérebro da operação. Ele não tem banco de dados de nomes ou títulos. [cite_start]Ele só guarda quem tem qual jogo e faz requisições pro Catálogo e pros Usuários para montar a resposta completa[cite: 33, 34, 37].
 
-## 🚀 Como rodar o projeto na sua máquina
+Como rodar o projeto na sua máquina
 
 [cite_start]Como são serviços independentes, você precisa rodar cada um no seu próprio terminal[cite: 56, 71].
 
@@ -31,7 +31,7 @@ npm run dev
 
 Tudo verde? Beleza, os 3 servidores estão online!
 
-🧪 Como testar (Exemplos de Requisições)Você pode usar o Insomnia ou o Thunder Client para testar. Aqui estão os testes principais:  
+Como testar (Exemplos de Requisições)Você pode usar o Insomnia ou o Thunder Client para testar. Aqui estão os testes principais:  
 
 1. Ver todos os jogos (Catálogo):
 
@@ -54,7 +54,7 @@ GET http://localhost:3000/biblioteca/1
 
 O que acontece aqui: Esse GET vai fazer a porta 3000 disparar requisições para a 3001 e 3002 ao mesmo tempo (usando Promise.all) para buscar os dados bonitinhos e te devolver um JSON completo!  
 
-🧠 Reflexão sobre Microsserviços
+Reflexão sobre Microsserviços
 1. O que acontece se um serviço cair?
 Se o catalogo-service ou o usuarios-service cair, a rota de GET da biblioteca-service quebra (ou, no meu caso, retorna um erro 503 dizendo que o serviço está indisponível, que foi o bônus da atividade). Isso acontece porque a biblioteca depende totalmente dos outros dois para formar a resposta.  
 
