@@ -11,7 +11,6 @@ const ARQUIVO = 'biblioteca.json';
 const URL_USUARIOS = 'http://127.0.0.1:3002/usuarios';
 const URL_CATALOGO = 'http://127.0.0.1:3001/jogos';
 
-// Funções de persistência
 const lerDados = async () => {
     try {
         const dados = await fs.readFile(ARQUIVO, 'utf-8');
@@ -25,7 +24,6 @@ const salvarDados = async (dados) => {
     await fs.writeFile(ARQUIVO, JSON.stringify(dados, null, 2));
 };
 
-// Rota POST
 app.post('/biblioteca', async (req, res) => {
     const biblioteca = await lerDados();
     const { usuarioId, jogoId } = req.body;
@@ -37,7 +35,6 @@ app.post('/biblioteca', async (req, res) => {
     res.status(201).json({ mensagem: "Jogo adicionado à biblioteca", novaRelacao });
 });
 
-// Rota GET
 app.get('/biblioteca/:usuarioId', async (req, res) => {
     const usuarioId = parseInt(req.params.usuarioId);
 
