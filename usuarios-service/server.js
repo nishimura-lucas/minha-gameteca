@@ -8,7 +8,6 @@ app.use(express.json());
 
 const ARQUIVO = 'usuarios.json';
 
-// Funções de persistência
 const lerDados = async () => {
     try {
         const dados = await fs.readFile(ARQUIVO, 'utf-8');
@@ -22,7 +21,6 @@ const salvarDados = async (dados) => {
     await fs.writeFile(ARQUIVO, JSON.stringify(dados, null, 2));
 };
 
-// Rotas
 app.get('/usuarios', async (req, res) => {
     const usuarios = await lerDados();
     res.status(200).json(usuarios);
@@ -55,5 +53,5 @@ app.post('/usuarios', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`👤 Usuarios-Service rodando na porta ${PORT}`);
+    console.log(`Usuarios-Service rodando na porta ${PORT}`);
 });
