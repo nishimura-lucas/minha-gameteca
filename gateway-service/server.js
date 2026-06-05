@@ -4,7 +4,6 @@ import proxy from 'express-http-proxy';
 const app = express();
 const PORT = 4000; 
 
-// Trocamos 'localhost' pelo IP fixo '127.0.0.1' para evitar confusões de rede do Node
 app.use('/jogos', proxy('http://127.0.0.1:3001', {
     proxyReqPathResolver: (req) => {
         return '/jogos' + req.url; 
