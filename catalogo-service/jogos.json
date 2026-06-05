@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "titulo": "The Legend of Zelda",
+    "plataforma": "Nintendo Switch",
+    "genero": "Aventura"
+  },
+  {
+    "id": 2,
+    "titulo": "Elden Ring",
+    "plataforma": "PC",
+    "genero": "RPG"
+  },
+  {
+    "id": 3,
+    "titulo": "Hollow Knight",
+    "plataforma": "PC",
+    "genero": "Metroidvania"
+  },
+  {
+    "id": 4,
+    "titulo": "Yu Yu Hakusho: Makai Touitsu Sen",
+    "plataforma": "Mega Drive",
+    "genero": "Luta"
+  }
+]
