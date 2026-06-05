@@ -34,9 +34,11 @@ Tudo verde? Beleza, os 3 servidores estão online!
 🧪 Como testar (Exemplos de Requisições)Você pode usar o Insomnia ou o Thunder Client para testar. Aqui estão os testes principais:  
 
 1. Ver todos os jogos (Catálogo):
+
 GET http://localhost:3001/jogos
 
-2. Adicionar um jogo na biblioteca de alguém:
+3. Adicionar um jogo na biblioteca de alguém:
+
 POST http://localhost:3000/biblioteca
 
 Body (JSON):
@@ -47,6 +49,7 @@ Body (JSON):
 }
 
 3. O Teste Principal (Ver a biblioteca completa de um usuário):
+
 GET http://localhost:3000/biblioteca/1
 
 O que acontece aqui: Esse GET vai fazer a porta 3000 disparar requisições para a 3001 e 3002 ao mesmo tempo (usando Promise.all) para buscar os dados bonitinhos e te devolver um JSON completo!  
